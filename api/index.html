@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-    <title>中转</title>
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-size: 100px;">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>站点提示</title>
+    <!--禁止全屏缩放-->
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!--不显示成手机号-->
+    <meta name="format-detection" content="telephone=no" />
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--解决UC手机字体变大的问题-->
+    <meta name="wap-font-scale" content="no" />
+    <!--控制状态栏显示样式-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link href="css/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+$(function ($) {
+    setRootFontSize();
+});
+window.onresize = function () {
+    setRootFontSize();
+}
+function setRootFontSize() {
+    $('html').css('font-size', document.body.clientWidth / 15 + 'px');
+}
+    </script>
 </head>
 <body>
+
+	
+	
     <div id="tips" style="font-size:25px;text-align: center;line-height: 50px;"></div>
     <script>
     var url = document.location.toString();
@@ -15,9 +39,13 @@
     var isWeixin = ua.indexOf('micromessenger') != -1;
     var isAndroid = ua.indexOf('android') != -1;
     var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
-
-    var notice_openBrowser = "<h2>请点击右上角，通过浏览器打开本页面。</h2><br />不得不看的内容，复制到浏览器打开吧：<b style=\"color:red\">www.yiove.com</b>"
-
+	var notice_openBrowser='';
+	if(isWeixin) {
+		 notice_openBrowser = '<div id="TIP_WX"><div class="fc_jt"><img src="img/jt.png"></div><div class="fc_wz">点击屏幕右上角【...】<br />使用【浏览器】打开</div>  <div class="fc_tp"><img src="img/wx_az.png"></div></div>';
+	}
+	if(isQQ) {
+		 notice_openBrowser = '<div id="TIP_QQ"><div class="fc_jt"><img src="img/jt.png"></div><div class="fc_wz">点击屏幕右上角【...】<br />使用【浏览器】打开</div>  <div class="fc_tp"><img src="img/qq.png"></div></div>';
+	}
     // 判断是不是在微信客户端打开
     if(isWeixin || isQQ) {
     // 判断是在Android的微信客户端还是Ios的微信客户端
@@ -31,12 +59,13 @@
     } else {
     // 不是微信客户端，直接可以访问链接
     if (urlParmStr == url){
-        //urlParmStr = "https://www.yiove.com";
+       
     }
     console.log(urlParmStr);
     location.href=urlParmStr;
+
     }
 </script>
-   
+     
 </body>
 </html>
