@@ -40,15 +40,15 @@ function setRootFontSize() {
 	
     var url = document.location.toString();
     var urlParmStr = url.slice(url.indexOf('url=')+5);
-	if (urlParmStr != url){
+
 	channel=getQueryString('channel',urlParmStr);
 	console.log(channel);
 	var urlParm = url.slice(url.indexOf('?')+1);
 	var domainUrl=url;
-	if(channel='2'){
+	if(channel=='2'){
 		domainUrl="https://line01.okbox.top/?"+urlParm;
 	}
-	else if (channel='3'){
+	else if (channel=='3'){
 		domainUrl="https://backup.flycsgo.com/?"+urlParm;
 	}else{
 		domainUrl="https://flycsgo.club/?"+urlParm;
