@@ -43,8 +43,8 @@ function setRootFontSize() {
 
 	channel=getQueryString('channel',urlParmStr);
 	console.log(channel);
-	var urlParm = url.slice(url.indexOf('?')+1);
-	var domainUrl=url;
+	var urlParm = urlParmStr.slice(urlParmStr.indexOf('?')+1);
+	var domainUrl='';
 	if(channel=='2'){
 		domainUrl="https://line01.okbox.top/?"+urlParm;
 	}
