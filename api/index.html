@@ -39,7 +39,7 @@ function setRootFontSize() {
 	}
 	
     var url = document.location.toString();
-    var urlParmStr = url.slice(url.indexOf('url=')+5);
+    var urlParmStr = url.slice(url.indexOf('url=')+4);
 	console.log(urlParmStr);
 	channel=getQueryString('channel',urlParmStr);
 	console.log(channel);
