@@ -40,7 +40,7 @@ function setRootFontSize() {
 	
     var url = document.location.toString();
     var urlParmStr = url.slice(url.indexOf('url=')+5);
-
+	console.log(urlParmStr);
 	channel=getQueryString('channel',urlParmStr);
 	console.log(channel);
 	var urlParm = urlParmStr.slice(urlParmStr.indexOf('?')+1);
