@@ -32,8 +32,28 @@ function setRootFontSize() {
 	
     <div id="tips" style="font-size:25px;text-align: center;line-height: 50px;"></div>
     <script>
+	function getQueryString(ParmName,url_string) {
+		  //const url_string = "https://www.baidu.com/t.html?name=mick&age=20"; // window.location.href
+		  const murl = new URL(url_string);
+		  return murl.searchParams.get(ParmName);
+	}
+	
     var url = document.location.toString();
-    var urlParmStr = url.slice(url.indexOf('=')+1);
+    var urlParmStr = url.slice(url.indexOf('url=')+5);
+	if (urlParmStr != url){
+	channel=getQueryString('channel',urlParmStr);
+	console.log(channel);
+	var urlParm = url.slice(url.indexOf('?')+1);
+	var domainUrl=url;
+	if(channel='2'){
+		domainUrl="https://line01.okbox.top/?"+urlParm;
+	}
+	else if (channel='3'){
+		domainUrl="https://backup.flycsgo.com/?"+urlParm;
+	}else{
+		domainUrl="https://flycsgo.club/?"+urlParm;
+	}
+	
     var ua = navigator.userAgent.toLowerCase();
     var isQQ = ua.indexOf('qq') != -1;
     var isWeixin = ua.indexOf('micromessenger') != -1;
@@ -59,10 +79,10 @@ function setRootFontSize() {
     } else {
     // 不是微信客户端，直接可以访问链接
     if (urlParmStr == url){
-       
+       location.href='https://backup.flycsgo.com';
     }
-    console.log(urlParmStr);
-    location.href=urlParmStr;
+    console.log(domainUrl);
+    location.href=domainUrl;
 
     }
 </script>
