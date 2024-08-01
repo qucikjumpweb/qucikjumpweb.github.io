@@ -45,9 +45,7 @@ function setRootFontSize() {
 	console.log(channel);
 	var urlParm = urlParmStr.slice(urlParmStr.indexOf('?')+1);
 	var domainUrl='';
-	if(channel=='0'){
-		domainUrl="https://flycsgo.com/?"+urlParm;
-	}else if(channel=='1'){
+	if(channel=='1'){
 		domainUrl="https://flycsgo.club/?"+urlParm;
 	}else if (channel=='2'){
 		domainUrl="https://backup.flycsgo.com/?"+urlParm;
