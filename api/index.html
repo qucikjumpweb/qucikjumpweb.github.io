@@ -46,13 +46,15 @@ function setRootFontSize() {
 	var urlParm = urlParmStr.slice(urlParmStr.indexOf('?')+1);
 	var domainUrl='';
 	if(channel=='1'){
-		domainUrl="https://flycsgo.club/?"+urlParm;
+		domainUrl="https://flycsgo.sybydz.top/?"+urlParm;
 	}else if (channel=='2'){
-		domainUrl="https://backup.flycsgo.com/?"+urlParm;
+		domainUrl="https://flycsgo.sybydz.top/?"+urlParm;
 	}else if (channel=='3'){
-		domainUrl="https://line01.okbox.top/?"+urlParm;
+		domainUrl="https://flycsgo.sybydz.top/?"+urlParm;
+	}else if (channel=='0'){
+		domainUrl="https://flycsgo.com/"+'?'+urlParm;
 	}else{
-		domainUrl=urlParmStr;
+		domainUrl="https://flycsgo.com/";
 	}
 	
     var ua = navigator.userAgent.toLowerCase();
